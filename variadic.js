@@ -25,7 +25,14 @@ console.log(concat('+', 'This', 'is', 'several', 'values')); // -> This+is+sever
 //This function needs to find the max of all the values passed in.
 function max() {
   //complete
-  
+  var args = Array.prototype.slice.call(arguments);
+  var maxValue = args[0];
+  args.forEach(function (arg, i) {
+    if (arg > maxValue) {
+      maxValue = arg;
+    }
+  });
+  return maxValue;
 }
 
-max(1, 7, 65, 8); // -> 65
+console.log(max(1, 7, 65, 8)); // -> 65
